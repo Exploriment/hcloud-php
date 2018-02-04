@@ -1,0 +1,56 @@
+{
+    "name": "exploriment/hcloud-php",
+    "description": "PHP library for the Hetzner Cloud API",
+    "keywords": [
+        "exploriment",
+        "hetzner",
+        "hetzner cloud",
+        "api"
+    ],
+    "homepage": "https://exploriment.io/",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Exploriment",
+            "email": "hello@exploriment.io",
+            "homepage": "https://exploriment.io/"
+        },
+        {
+            "name": "Yuan Hao 'Danny' Li",
+            "email": "danny@exploriment.io",
+            "homepage": "https://exploriment.io/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Exploriment/hcloud-php/issues",
+        "wiki": "https://github.com/Exploriment/hcloud-php/wiki",
+        "docs": "https://github.com/Exploriment/hcloud-php/wiki",
+        "email": "danny@exploriment.io"
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "tightenco/collect": "v5.4.33",
+        "php": ">=5.6.4",
+        "ext-json": "*",
+        "ext-mbstring": "*"
+    },
+    "suggests": {
+        "ext-curl": "GuzzlePHP will use cURL for HTTP requests (recommended)"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+        "victorjonsson/markdowndocs": "^1.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Exploriment\\HetznerCloud\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Exploriment\\HetznerCloud\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable"
+}
