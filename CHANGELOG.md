@@ -1,4 +1,4 @@
 # Changelog
 
-## 1.0.0 - 2018-02-xx
+## v1.0.0 - 2018-02-04
 * Initial release

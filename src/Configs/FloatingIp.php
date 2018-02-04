@@ -24,7 +24,7 @@ final class FloatingIp extends Config
      * @const array
      */
     const TYPES = [
-        'ipv4', 'ipv6', 'ipv43'
+        'ipv4', 'ipv6'
     ];
 
     /**

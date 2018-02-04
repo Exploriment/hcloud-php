@@ -1,5 +1,7 @@
 # PHP library for the Hetzner Cloud API by Exploriment
 
+![License](https://poser.pugx.org/exploriment/hcloud-php/license) ![Latest Stable Version](https://poser.pugx.org/exploriment/hcloud-php/version) ![Total Downloads](https://poser.pugx.org/exploriment/hcloud-php/downloads)
+
 ## Installation: Composer
 
 You can install this library via [Composer](http://getcomposer.org/). Run the following command:
