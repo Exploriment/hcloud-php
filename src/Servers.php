@@ -100,9 +100,7 @@ final class Servers extends Resource
 
         $response = self::request('POST', '', $config->toArray());
 
-        var_dump(json_encode($response));die();
-
-        return new ServerCreation($response);
+        return new ServerCreation($response->getBody());
     }
 
     /**

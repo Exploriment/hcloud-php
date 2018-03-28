@@ -37,6 +37,14 @@ final class ApiResponse implements \JsonSerializable
     }
 
     /**
+     * @return object
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    /**
      * @return bool
      */
     public function hasPagination()
