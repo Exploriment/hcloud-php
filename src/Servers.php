@@ -372,7 +372,7 @@ final class Servers extends Resource
             compact('type', 'description')
         );
 
-        return new ImageCreation($response);
+        return new ImageCreation($response->getBody());
     }
 
     /**
