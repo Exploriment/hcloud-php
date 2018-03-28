@@ -8,7 +8,7 @@ use Exploriment\HetznerCloud\Servers;
  * Class FloatingIp
  * @package Exploriment\HetznerCloud\Objects
  */
-final class FloatingIp extends Object
+final class FloatingIp extends BaseObject
 {
 
     /**

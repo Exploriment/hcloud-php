@@ -6,7 +6,7 @@ namespace Exploriment\HetznerCloud\Objects;
  * Class Object
  * @package Exploriment\HetznerCloud\Objects
  */
-class Object
+class BaseObject
 {
     /**
      * Object constructor.

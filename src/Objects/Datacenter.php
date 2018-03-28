@@ -6,7 +6,7 @@ namespace Exploriment\HetznerCloud\Objects;
  * Class Datacenter
  * @package Exploriment\HetznerCloud\Objects
  */
-final class Datacenter extends Object
+final class Datacenter extends BaseObject
 {
 
     /**

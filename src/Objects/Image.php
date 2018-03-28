@@ -10,7 +10,7 @@ use Exploriment\HetznerCloud\Servers;
  * Class Image
  * @package Exploriment\HetznerCloud\Objects
  */
-final class Image extends Object
+final class Image extends BaseObject
 {
 
     /**

@@ -6,7 +6,7 @@ namespace Exploriment\HetznerCloud\Objects;
  * Class ServerCreation
  * @package Exploriment\HetznerCloud\Objects
  */
-final class ServerCreation extends Object
+final class ServerCreation extends BaseObject
 {
 
     /**

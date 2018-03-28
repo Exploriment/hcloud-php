@@ -8,7 +8,7 @@ use Exploriment\HetznerCloud\Servers;
  * Class Server
  * @package Exploriment\HetznerCloud\Objects
  */
-final class Server extends Object
+final class Server extends BaseObject
 {
 
     /**

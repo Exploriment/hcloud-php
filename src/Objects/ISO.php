@@ -6,7 +6,7 @@ namespace Exploriment\HetznerCloud\Objects;
  * Class ISO
  * @package Exploriment\HetznerCloud\Objects
  */
-final class ISO extends Object
+final class ISO extends BaseObject
 {
 
     /**

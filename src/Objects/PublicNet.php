@@ -6,7 +6,7 @@ namespace Exploriment\HetznerCloud\Objects;
  * Class PublicNet
  * @package Exploriment\HetznerCloud\Objects
  */
-final class PublicNet extends Object
+final class PublicNet extends BaseObject
 {
 
     /**

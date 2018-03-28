@@ -6,7 +6,7 @@ namespace Exploriment\HetznerCloud\Objects;
  * Class Action
  * @package Exploriment\HetznerCloud\Objects
  */
-class Action extends Object
+class Action extends BaseObject
 {
 
     /**

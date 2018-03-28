@@ -6,7 +6,7 @@ namespace Exploriment\HetznerCloud\Objects;
  * Class Location
  * @package Exploriment\HetznerCloud\Objects
  */
-final class Location extends Object
+final class Location extends BaseObject
 {
 
     /**

@@ -7,7 +7,7 @@ use Exploriment\HetznerCloud\SshKeys;
  * Class SshKey
  * @package Exploriment\HetznerCloud\Objects
  */
-final class SshKey extends Object
+final class SshKey extends BaseObject
 {
 
     /**
