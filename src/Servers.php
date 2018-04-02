@@ -530,15 +530,17 @@ final class Servers extends Resource
      * @see https://docs.hetzner.cloud/#resources-server-actions-post-15
      *
      * @param int $id
+     * @param string $ip
      * @param null|string $dns_ptr
      * @return Action
      * @throws Exceptions\MalformedResponse
      * @throws \Exception
      * @throws \ReflectionException
      */
-    public static function changeDnsPtr($id, $dns_ptr = null)
+    public static function changeDnsPtr($id, $ip, $dns_ptr = null)
     {
         return self::action($id, 'change_dns_ptr', [
+            'ip' => $ip,
             'dns_ptr' => $dns_ptr
         ]);
     }

@@ -322,15 +322,16 @@ final class Server extends BaseObject
     /**
      * @see Servers::changeDnsPtr()
      *
+     * @param string $ip
      * @param null|string $dns_ptr
      * @return Action
      * @throws \Exception
      * @throws \Exploriment\HetznerCloud\Exceptions\MalformedResponse
      * @throws \ReflectionException
      */
-    public function changeDnsPtr($dns_ptr = null)
+    public function changeDnsPtr($ip, $dns_ptr = null)
     {
-        return Servers::changeDnsPtr($this->id, $dns_ptr);
+        return Servers::changeDnsPtr($this->id, $ip, $dns_ptr);
     }
 
     /**
