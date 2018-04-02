@@ -12,12 +12,12 @@ final class ImageCreation extends Action
     /**
      * @var object
      */
-    public $action;
+    protected $action;
 
     /**
      * @var object
      */
-    public $image;
+    protected $image;
 
     /**
      * @return Action

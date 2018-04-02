@@ -12,37 +12,37 @@ final class Location extends BaseObject
     /**
      * @var int
      */
-    public $id;
+    protected $id;
 
     /**
      * @var string
      */
-    public $name;
+    protected $name;
 
     /**
      * @var string
      */
-    public $description;
+    protected $description;
 
     /**
      * @var string
      */
-    public $country;
+    protected $country;
 
     /**
      * @var string
      */
-    public $city;
+    protected $city;
 
     /**
      * @var float
      */
-    public $latitude;
+    protected $latitude;
 
     /**
      * @var float
      */
-    public $longitude;
+    protected $longitude;
 
     /**
      * ID of the location

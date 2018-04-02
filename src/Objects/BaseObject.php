@@ -6,7 +6,7 @@ namespace Exploriment\HetznerCloud\Objects;
  * Class Object
  * @package Exploriment\HetznerCloud\Objects
  */
-class BaseObject
+class BaseObject implements \jsonSerializable
 {
     /**
      * Object constructor.
@@ -26,5 +26,13 @@ class BaseObject
     public function __toString()
     {
         return (string) $this->id;
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 }

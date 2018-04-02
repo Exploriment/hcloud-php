@@ -12,7 +12,7 @@ final class ActionPasswordReset extends Action
     /**
      * @var string
      */
-    public $root_password;
+    protected $root_password;
 
     /**
      * Returns the new root password for the server if the action succeeds

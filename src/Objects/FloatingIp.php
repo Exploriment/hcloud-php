@@ -14,42 +14,42 @@ final class FloatingIp extends BaseObject
     /**
      * @var int
      */
-    public $id;
+    protected $id;
 
     /**
      * @var string|null
      */
-    public $description;
+    protected $description;
 
     /**
      * @var string
      */
-    public $ip;
+    protected $ip;
 
     /**
      * @var string
      */
-    public $type;
+    protected $type;
 
     /**
      * @var int|null
      */
-    public $server;
+    protected $server;
 
     /**
      * @var array
      */
-    public $dns_ptr;
+    protected $dns_ptr;
 
     /**
      * @var object
      */
-    public $home_location;
+    protected $home_location;
 
     /**
      * @var bool
      */
-    public $blocked;
+    protected $blocked;
 
     /**
      * ID of the floating IP

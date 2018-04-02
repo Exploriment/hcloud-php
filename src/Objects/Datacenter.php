@@ -12,27 +12,27 @@ final class Datacenter extends BaseObject
     /**
      * @var int
      */
-    public $id;
+    protected $id;
 
     /**
      * @var string
      */
-    public $name;
+    protected $name;
 
     /**
      * @var string
      */
-    public $description;
+    protected $description;
 
     /**
      * @var object
      */
-    public $location;
+    protected $location;
 
     /**
      * @var object
      */
-    public $server_types;
+    protected $server_types;
 
     /**
      * ID of the datacenter

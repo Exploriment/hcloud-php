@@ -12,12 +12,12 @@ final class PublicNet extends BaseObject
     /**
      * @var object
      */
-    public $ipv4;
+    protected $ipv4;
 
     /**
      * @var object
      */
-    public $ipv6;
+    protected $ipv6;
 
     /**
      * Retrieve the ipv4 address of the server

@@ -16,67 +16,67 @@ final class Image extends BaseObject
     /**
      * @var int
      */
-    public $id;
+    protected $id;
 
     /**
      * @var string
      */
-    public $type;
+    protected $type;
 
     /**
      * @var string
      */
-    public $status;
+    protected $status;
 
     /**
      * @var string|null
      */
-    public $name;
+    protected $name;
 
     /**
      * @var string
      */
-    public $description;
+    protected $description;
 
     /**
      * @var float|null
      */
-    public $image_size;
+    protected $image_size;
 
     /**
      * @var float
      */
-    public $disk_size;
+    protected $disk_size;
 
     /**
      * @var string
      */
-    public $created;
+    protected $created;
 
     /**
      * @var object|null
      */
-    public $created_from;
+    protected $created_from;
 
     /**
      * @var int|null
      */
-    public $bound_to;
+    protected $bound_to;
 
     /**
      * @var string
      */
-    public $os_flavor;
+    protected $os_flavor;
 
     /**
      * @var string|null
      */
-    public $os_version;
+    protected $os_version;
 
     /**
      * @var bool
      */
-    public $rapid_deploy;
+    protected $rapid_deploy;
 
     /**
      * @return int

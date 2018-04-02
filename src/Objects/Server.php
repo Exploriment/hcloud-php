@@ -14,77 +14,77 @@ final class Server extends BaseObject
     /**
      * @var integer
      */
-    public $id;
+    protected $id;
 
     /**
      * @var string
      */
-    public $name;
+    protected $name;
 
     /**
      * @var string
      */
-    public $status;
+    protected $status;
 
     /**
      * @var string
      */
-    public $created;
+    protected $created;
 
     /**
      * @var object
      */
-    public $public_net;
+    protected $public_net;
 
     /**
      * @var object
      */
-    public $server_type;
+    protected $server_type;
 
     /**
      * @var object
      */
-    public $datacenter;
+    protected $datacenter;
 
     /**
      * @var object|null
      */
-    public $image;
+    protected $image;
 
     /**
      * @var object|null
      */
-    public $iso;
+    protected $iso;
 
     /**
      * @var bool
      */
-    public $rescue_enabled;
+    protected $rescue_enabled;
 
     /**
      * @var bool
      */
-    public $locked;
+    protected $locked;
 
     /**
      * @var string|null
      */
-    public $backup_window;
+    protected $backup_window;
     
     /**
      * @var int|null
      */
-    public $outgoing_traffic;
+    protected $outgoing_traffic;
 
     /**
      * @var int|null
      */
-    public $ingoing_traffic;
+    protected $ingoing_traffic;
 
     /**
      * @var int
      */
-    public $included_traffic;
+    protected $included_traffic;
 
     /**
      * @see Servers::findAction()

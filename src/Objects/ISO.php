@@ -12,22 +12,22 @@ final class ISO extends BaseObject
     /**
      * @var int
      */
-    public $id;
+    protected $id;
 
     /**
      * @var string|null
      */
-    public $name;
+    protected $name;
 
     /**
      * @var string
      */
-    public $description;
+    protected $description;
 
     /**
      * @var string
      */
-    public $type;
+    protected $type;
 
     /**
      * ID of the ISO

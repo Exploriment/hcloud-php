@@ -12,42 +12,42 @@ final class ServerType extends BaseObject
     /**
      * @var int
      */
-    public $id;
+    protected $id;
 
     /**
      * @var string
      */
-    public $name;
+    protected $name;
 
     /**
      * @var string
      */
-    public $description;
+    protected $description;
 
     /**
      * @var int
      */
-    public $cores;
+    protected $cores;
 
     /**
      * @var float
      */
-    public $memory;
+    protected $memory;
 
     /**
      * @var float
      */
-    public $disk;
+    protected $disk;
 
     /**
      * @var array
      */
-    public $prices;
+    protected $prices;
 
     /**
      * @var string
      */
-    public $storage_type;
+    protected $storage_type;
 
     /**
      * ID of the server type

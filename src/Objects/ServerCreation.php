@@ -12,17 +12,17 @@ final class ServerCreation extends BaseObject
     /**
      * @var object
      */
-    public $action;
+    protected $action;
 
     /**
      * @var object
      */
-    public $server;
+    protected $server;
 
     /**
      * @var string
      */
-    public $root_password;
+    protected $root_password;
 
     /**
      * @return Action

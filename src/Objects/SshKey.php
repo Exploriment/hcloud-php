@@ -13,22 +13,22 @@ final class SshKey extends BaseObject
     /**
      * @var int
      */
-    public $id;
+    protected $id;
 
     /**
      * @var string
      */
-    public $name;
+    protected $name;
 
     /**
      * @var string
      */
-    public $fingerprint;
+    protected $fingerprint;
 
     /**
      * @var string
      */
-    public $public_key;
+    protected $public_key;
 
     /**
      * ID of the SSH key

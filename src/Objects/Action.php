@@ -12,42 +12,42 @@ class Action extends BaseObject
     /**
      * @var int
      */
-    public $id;
+    protected $id;
 
     /**
      * @var string
      */
-    public $command;
+    protected $command;
 
     /**
      * @var string
      */
-    public $status;
+    protected $status;
 
     /**
      * @var int
      */
-    public $progress;
+    protected $progress;
 
     /**
      * @var string
      */
-    public $started;
+    protected $started;
 
     /**
      * @var string|null
      */
-    public $finished;
+    protected $finished;
 
     /**
      * @var array
      */
-    public $resources;
+    protected $resources;
 
     /**
      * @var object|null
      */
-    public $error;
+    protected $error;
 
     /**
      * ID of the action
