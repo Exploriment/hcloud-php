@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.0.3 - 2018-04-02
+* **[Bugfix]** Fixed `root must be an object`. Issue #2
+
 ## v1.0.2 - 2018-03-28
 * **[Bugfix]** When creating an image the response returned in the ImageCreation class is no longer null. Similar to issue #1.
 

@@ -55,18 +55,19 @@ final class Http
     }
 
     /**
-     * @param string $method
-     * @param string $uri
+     * @param $method
+     * @param $uri
      * @param array $json
      * @param array $query
-     * @return ApiResponse|bool
+     * @return bool|ApiResponse
      * @throws MalformedResponse
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public static function request($method, $uri, $json = [ ], $query = [ ])
     {
+
         $response = self::client()->request($method, $uri, [
-            'json' => $json,
+            'json' => (object) $json,
             'query' => $query
         ]);
 
