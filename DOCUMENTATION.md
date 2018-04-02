@@ -39,13 +39,14 @@
 - [\Exploriment\HetznerCloud\Exceptions\MethodUnavailable](#class-explorimenthetznercloudexceptionsmethodunavailable)
 - [\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)
 - [\Exploriment\HetznerCloud\Objects\ActionPasswordReset](#class-explorimenthetznercloudobjectsactionpasswordreset)
+- [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)
+- [\Exploriment\HetznerCloud\Objects\ConsoleCredentials](#class-explorimenthetznercloudobjectsconsolecredentials)
 - [\Exploriment\HetznerCloud\Objects\Datacenter](#class-explorimenthetznercloudobjectsdatacenter)
 - [\Exploriment\HetznerCloud\Objects\FloatingIp](#class-explorimenthetznercloudobjectsfloatingip)
 - [\Exploriment\HetznerCloud\Objects\Image](#class-explorimenthetznercloudobjectsimage)
 - [\Exploriment\HetznerCloud\Objects\ImageCreation](#class-explorimenthetznercloudobjectsimagecreation)
 - [\Exploriment\HetznerCloud\Objects\ISO](#class-explorimenthetznercloudobjectsiso)
 - [\Exploriment\HetznerCloud\Objects\Location](#class-explorimenthetznercloudobjectslocation)
-- [\Exploriment\HetznerCloud\Objects\Object](#class-explorimenthetznercloudobjectsobject)
 - [\Exploriment\HetznerCloud\Objects\PublicNet](#class-explorimenthetznercloudobjectspublicnet)
 - [\Exploriment\HetznerCloud\Objects\Server](#class-explorimenthetznercloudobjectsserver)
 - [\Exploriment\HetznerCloud\Objects\ServerCreation](#class-explorimenthetznercloudobjectsservercreation)
@@ -73,6 +74,7 @@
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>mixed</em> <strong>$body</strong>)</strong> : <em>void</em><br /><em>ApiResponse constructor.</em> |
 | public | <strong>__get(</strong><em>mixed</em> <strong>$name</strong>)</strong> : <em>null</em> |
+| public | <strong>getBody()</strong> : <em>object</em> |
 | public | <strong>getCurrentPage()</strong> : <em>int</em> |
 | public | <strong>getNextPage()</strong> : <em>int</em> |
 | public | <strong>hasNextPage()</strong> : <em>bool</em> |
@@ -140,7 +142,7 @@
 | public static | <strong>client()</strong> : <em>\GuzzleHttp\Client</em> |
 | public static | <strong>getErrorClass(</strong><em>object</em> <strong>$error</strong>)</strong> : <em>[\Exception](http://php.net/manual/en/class.exception.php)</em> |
 | public static | <strong>parseCode(</strong><em>string</em> <strong>$code</strong>)</strong> : <em>string</em> |
-| public static | <strong>request(</strong><em>string</em> <strong>$method</strong>, <em>string</em> <strong>$uri</strong>, <em>array</em> <strong>$json=array()</strong>, <em>array</em> <strong>$query=array()</strong>)</strong> : <em>[\Exploriment\HetznerCloud\ApiResponse](#class-explorimenthetznercloudapiresponse)/bool</em> |
+| public static | <strong>request(</strong><em>mixed</em> <strong>$method</strong>, <em>mixed</em> <strong>$uri</strong>, <em>array</em> <strong>$json=array()</strong>, <em>array</em> <strong>$query=array()</strong>)</strong> : <em>bool/[\Exploriment\HetznerCloud\ApiResponse](#class-explorimenthetznercloudapiresponse)</em> |
 | public static | <strong>reset()</strong> : <em>void</em><br /><em>Reset the client</em> |
 
 <hr />
@@ -208,7 +210,8 @@
 | Visibility | Function |
 |:-----------|:---------|
 | public static | <strong>attachIso(</strong><em>int</em> <strong>$id</strong>, <em>int/string/\Exploriment\HetznerCloud\ISO</em> <strong>$iso</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em><br /><em>Attaches an ISO to a server. The Server will immediately see it as a new disk. An already attached ISO will automatically be detached before the new ISO is attached. Servers with attached ISOs have a modified boot order: They will try to boot from the ISO first before falling back to hard disk.</em> |
-| public static | <strong>changeDnsPtr(</strong><em>int</em> <strong>$id</strong>, <em>null/string</em> <strong>$dns_ptr=null</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em><br /><em>Changes the hostname that will appear when getting the hostname belonging to the primary IPs (ipv4 and ipv6) of this server. Floating IPs assigned to the server are not affected by this.</em> |
+| public static | <strong>changeDnsPtr(</strong><em>int</em> <strong>$id</strong>, <em>string</em> <strong>$ip</strong>, <em>null/string</em> <strong>$dns_ptr=null</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em><br /><em>Changes the hostname that will appear when getting the hostname belonging to the primary IPs (ipv4 and ipv6) of this server. Floating IPs assigned to the server are not affected by this.</em> |
+| public static | <strong>changeProtection(</strong><em>int</em> <strong>$id</strong>, <em>bool</em> <strong>$delete</strong>, <em>bool</em> <strong>$rebuild</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em><br /><em>Changes the protection configuration of the server.</em> |
 | public static | <strong>changeType(</strong><em>int</em> <strong>$id</strong>, <em>int/string/\Exploriment\HetznerCloud\ServerType</em> <strong>$server_type</strong>, <em>bool</em> <strong>$upgrade_disk=true</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em><br /><em>Changes the type (Cores, RAM and disk sizes) of a server. Server must be powered off for this command to succeed. This copies the content of its disk, and starts it again. You can only migrate to server types with the same storage_type and equal or bigger disks. Shrinking disks is not possible as it might destroy data. If the disk gets upgraded, the server type can not be downgraded any more. If you plan to downgrade the server type, set upgrade_disk to false.</em> |
 | public static | <strong>create(</strong><em>[\Exploriment\HetznerCloud\Configs\Server](#class-explorimenthetznercloudconfigsserver)</em> <strong>$config</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\ServerCreation](#class-explorimenthetznercloudobjectsservercreation)</em><br /><em>Create a new server</em> |
 | public static | <strong>createImage(</strong><em>int</em> <strong>$id</strong>, <em>string</em> <strong>$description=`''`</strong>, <em>string</em> <strong>$type=`'snapshot'`</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\ImageCreation](#class-explorimenthetznercloudobjectsimagecreation)</em><br /><em>Creates an image (snapshot) from a server by copying the contents of its disks. This creates a snapshot of the current state of the disk and copies it into an image. If the server is currently running you must make sure that its disk content is consistent. Otherwise, the created image may not be readable. To make sure disk content is consistent, we recommend to shut down the server prior to creating an image. You can either create a backup image that is bound to the server and therefore will be deleted when the server is deleted, or you can create an snapshot image which is completely independent of the server it was created from and will survive server deletion. Backup images are only available when the backup option is enabled for the Server. Snapshot images are billed on a per GB basis.</em> |
@@ -225,6 +228,7 @@
 | public static | <strong>reboot(</strong><em>int</em> <strong>$id</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em><br /><em>Soft-reboot a server</em> |
 | public static | <strong>rebuild(</strong><em>int</em> <strong>$id</strong>, <em>int/string/\Exploriment\HetznerCloud\Image</em> <strong>$image</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em><br /><em>Rebuilds a server overwriting its disk with the content of an image, thereby destroying all data on the target server. The image can either be one you have created earlier (backup or snapshot image) or it can be a completely fresh system image provided by Hetzner. Your server will automatically be powered off before the rebuild command executes.</em> |
 | public static | <strong>rename(</strong><em>int</em> <strong>$id</strong>, <em>string</em> <strong>$name</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Server](#class-explorimenthetznercloudobjectsserver)</em><br /><em>Rename a server</em> |
+| public static | <strong>requestConsole(</strong><em>int</em> <strong>$id</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\ConsoleCredentials](#class-explorimenthetznercloudobjectsconsolecredentials)</em><br /><em>Requests credentials for remote access via vnc over websocket to keyboard, monitor, and mouse for a server. The provided url is valid for 1 minute, after this period a new url needs to be created to connect to the server. How long the connection is open after the initial connect is not subject to this timeout.</em> |
 | public static | <strong>reset(</strong><em>int</em> <strong>$id</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em><br /><em>Reset a server (force restart)</em> |
 | public static | <strong>resetPassword(</strong><em>int</em> <strong>$id</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\ActionPasswordReset](#class-explorimenthetznercloudobjectsactionpasswordreset)</em><br /><em>Reset the root password for as server</em> |
 | public static | <strong>restart(</strong><em>mixed</em> <strong>$id</strong>)</strong> : <em>void</em> |
@@ -626,7 +630,9 @@
 | public | <strong>isRunning()</strong> : <em>bool</em> |
 | public | <strong>isSuccess()</strong> : <em>bool</em> |
 
-*This class extends [\Exploriment\HetznerCloud\Objects\Object](#class-explorimenthetznercloudobjectsobject)*
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
+
+*This class implements \JsonSerializable*
 
 <hr />
 
@@ -639,6 +645,38 @@
 | public | <strong>getRootPassword()</strong> : <em>string</em><br /><em>Returns the new root password for the server if the action succeeds</em> |
 
 *This class extends [\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)*
+
+*This class implements \JsonSerializable*
+
+<hr />
+
+### Class: \Exploriment\HetznerCloud\Objects\BaseObject
+
+> Class Object
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>__construct(</strong><em>mixed</em> <strong>$object</strong>)</strong> : <em>void</em><br /><em>Object constructor.</em> |
+| public | <strong>__toString()</strong> : <em>string</em> |
+| public | <strong>jsonSerialize()</strong> : <em>array</em> |
+
+*This class implements \JsonSerializable*
+
+<hr />
+
+### Class: \Exploriment\HetznerCloud\Objects\ConsoleCredentials
+
+> Class ConsoleCredentials
+
+| Visibility | Function |
+|:-----------|:---------|
+| public | <strong>getAction()</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
+| public | <strong>getPassword()</strong> : <em>string</em> |
+| public | <strong>getWssUrl()</strong> : <em>string</em> |
+
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
+
+*This class implements \JsonSerializable*
 
 <hr />
 
@@ -656,7 +694,9 @@
 | public | <strong>isAvailable(</strong><em>[\Exploriment\HetznerCloud\Objects\ServerType](#class-explorimenthetznercloudobjectsservertype)/int/string</em> <strong>$server</strong>)</strong> : <em>bool</em><br /><em>Check if a server type is available</em> |
 | public | <strong>isSupported(</strong><em>[\Exploriment\HetznerCloud\Objects\ServerType](#class-explorimenthetznercloudobjectsservertype)/int/string</em> <strong>$server</strong>)</strong> : <em>bool</em><br /><em>Check if a server type is supported</em> |
 
-*This class extends [\Exploriment\HetznerCloud\Objects\Object](#class-explorimenthetznercloudobjectsobject)*
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
+
+*This class implements \JsonSerializable*
 
 <hr />
 
@@ -683,7 +723,9 @@
 | public | <strong>unassign()</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
 | public | <strong>update(</strong><em>string</em> <strong>$description</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\FloatingIp](#class-explorimenthetznercloudobjectsfloatingip)</em> |
 
-*This class extends [\Exploriment\HetznerCloud\Objects\Object](#class-explorimenthetznercloudobjectsobject)*
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
+
+*This class implements \JsonSerializable*
 
 <hr />
 
@@ -716,7 +758,9 @@
 | public | <strong>isSystem()</strong> : <em>bool</em> |
 | public | <strong>update(</strong><em>string</em> <strong>$description</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Image](#class-explorimenthetznercloudobjectsimage)</em> |
 
-*This class extends [\Exploriment\HetznerCloud\Objects\Object](#class-explorimenthetznercloudobjectsobject)*
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
+
+*This class implements \JsonSerializable*
 
 <hr />
 
@@ -729,7 +773,9 @@
 | public | <strong>getAction()</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
 | public | <strong>getImage()</strong> : <em>[\Exploriment\HetznerCloud\Objects\Image](#class-explorimenthetznercloudobjectsimage)</em> |
 
-*This class extends [\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)*
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
+
+*This class implements \JsonSerializable*
 
 <hr />
 
@@ -746,7 +792,9 @@
 | public | <strong>isPrivate()</strong> : <em>bool</em> |
 | public | <strong>isPublic()</strong> : <em>bool</em> |
 
-*This class extends [\Exploriment\HetznerCloud\Objects\Object](#class-explorimenthetznercloudobjectsobject)*
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
+
+*This class implements \JsonSerializable*
 
 <hr />
 
@@ -764,18 +812,9 @@
 | public | <strong>getLongitude()</strong> : <em>float</em><br /><em>Longitude of the city closest to the location</em> |
 | public | <strong>getName()</strong> : <em>string</em><br /><em>Unique identifier of the location</em> |
 
-*This class extends [\Exploriment\HetznerCloud\Objects\Object](#class-explorimenthetznercloudobjectsobject)*
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
 
-<hr />
-
-### Class: \Exploriment\HetznerCloud\Objects\Object
-
-> Class Object
-
-| Visibility | Function |
-|:-----------|:---------|
-| public | <strong>__construct(</strong><em>mixed</em> <strong>$object</strong>)</strong> : <em>void</em><br /><em>Object constructor.</em> |
-| public | <strong>__toString()</strong> : <em>string</em> |
+*This class implements \JsonSerializable*
 
 <hr />
 
@@ -789,7 +828,9 @@
 | public | <strong>getIpv4()</strong> : <em>string</em><br /><em>Retrieve the ipv4 address of the server</em> |
 | public | <strong>getIpv6()</strong> : <em>string</em><br /><em>Retrieve the ipv6 address of the server</em> |
 
-*This class extends [\Exploriment\HetznerCloud\Objects\Object](#class-explorimenthetznercloudobjectsobject)*
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
+
+*This class implements \JsonSerializable*
 
 <hr />
 
@@ -800,7 +841,8 @@
 | Visibility | Function |
 |:-----------|:---------|
 | public | <strong>attachIso(</strong><em>int/string/[\Exploriment\HetznerCloud\Objects\ISO](#class-explorimenthetznercloudobjectsiso)</em> <strong>$iso</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
-| public | <strong>changeDnsPtr(</strong><em>null/string</em> <strong>$dns_ptr=null</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
+| public | <strong>changeDnsPtr(</strong><em>string</em> <strong>$ip</strong>, <em>null/string</em> <strong>$dns_ptr=null</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
+| public | <strong>changeProtection(</strong><em>bool</em> <strong>$delete</strong>, <em>bool</em> <strong>$rebuild</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
 | public | <strong>changeType(</strong><em>int/string/[\Exploriment\HetznerCloud\Objects\ServerType](#class-explorimenthetznercloudobjectsservertype)</em> <strong>$server_type</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
 | public | <strong>delete()</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
 | public | <strong>detachIso()</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
@@ -840,6 +882,7 @@
 | public | <strong>reboot()</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
 | public | <strong>rebuild(</strong><em>int/string/[\Exploriment\HetznerCloud\Objects\Image](#class-explorimenthetznercloudobjectsimage)</em> <strong>$image</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
 | public | <strong>rename(</strong><em>string</em> <strong>$name</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\Server](#class-explorimenthetznercloudobjectsserver)</em> |
+| public | <strong>requestConsole()</strong> : <em>[\Exploriment\HetznerCloud\Objects\ConsoleCredentials](#class-explorimenthetznercloudobjectsconsolecredentials)</em> |
 | public | <strong>reset()</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
 | public | <strong>resetPassword()</strong> : <em>[\Exploriment\HetznerCloud\Objects\ActionPasswordReset](#class-explorimenthetznercloudobjectsactionpasswordreset)</em> |
 | public | <strong>restart()</strong> : <em>void</em> |
@@ -847,7 +890,9 @@
 | public | <strong>start()</strong> : <em>[\Exploriment\HetznerCloud\Objects\Action](#class-explorimenthetznercloudobjectsaction)</em> |
 | public | <strong>stop()</strong> : <em>void</em> |
 
-*This class extends [\Exploriment\HetznerCloud\Objects\Object](#class-explorimenthetznercloudobjectsobject)*
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
+
+*This class implements \JsonSerializable*
 
 <hr />
 
@@ -861,7 +906,9 @@
 | public | <strong>getRootPassword()</strong> : <em>string</em> |
 | public | <strong>getServer()</strong> : <em>[\Exploriment\HetznerCloud\Objects\Server](#class-explorimenthetznercloudobjectsserver)</em> |
 
-*This class extends [\Exploriment\HetznerCloud\Objects\Object](#class-explorimenthetznercloudobjectsobject)*
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
+
+*This class implements \JsonSerializable*
 
 <hr />
 
@@ -882,7 +929,9 @@
 | public | <strong>isLocal()</strong> : <em>bool</em> |
 | public | <strong>isNetwork()</strong> : <em>bool</em> |
 
-*This class extends [\Exploriment\HetznerCloud\Objects\Object](#class-explorimenthetznercloudobjectsobject)*
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
+
+*This class implements \JsonSerializable*
 
 <hr />
 
@@ -900,5 +949,7 @@
 | public | <strong>rename(</strong><em>string</em> <strong>$name</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\SshKey](#class-explorimenthetznercloudobjectssshkey)</em> |
 | public | <strong>update(</strong><em>string</em> <strong>$name</strong>)</strong> : <em>[\Exploriment\HetznerCloud\Objects\SshKey](#class-explorimenthetznercloudobjectssshkey)</em> |
 
-*This class extends [\Exploriment\HetznerCloud\Objects\Object](#class-explorimenthetznercloudobjectsobject)*
+*This class extends [\Exploriment\HetznerCloud\Objects\BaseObject](#class-explorimenthetznercloudobjectsbaseobject)*
+
+*This class implements \JsonSerializable*
 
