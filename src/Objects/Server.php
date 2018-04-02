@@ -335,6 +335,20 @@ final class Server extends BaseObject
     }
 
     /**
+     * @see Servers::changeProtection()
+     *
+     * @param bool $delete
+     * @param bool $rebuild
+     * @return Action
+     * @throws \Exploriment\HetznerCloud\Exceptions\MalformedResponse
+     * @throws \ReflectionException
+     */
+    public function changeProtection($delete, $rebuild)
+    {
+        return Servers::changeProtection($this->id, $delete, $rebuild);
+    }
+
+    /**
      * @see Servers::delete()
      *
      * @return Action

@@ -546,6 +546,25 @@ final class Servers extends Resource
     }
 
     /**
+     * Changes the protection configuration of the server.
+     * @see https://docs.hetzner.cloud/#resources-server-actions-post-16
+     *
+     * @param int $id
+     * @param bool $delete
+     * @param bool $rebuild
+     * @return Action
+     * @throws Exceptions\MalformedResponse
+     * @throws \ReflectionException
+     */
+    public static function changeProtection($id, $delete, $rebuild)
+    {
+        return self::action($id, 'change_protection', [
+            'delete' => (bool) $delete,
+            'rebuild' => (bool) $rebuild
+        ]);
+    }
+
+    /**
      * Delete a server
      * @see https://docs.hetzner.cloud/#resources-servers-delete
      *
