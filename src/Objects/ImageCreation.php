@@ -6,7 +6,7 @@ namespace Exploriment\HetznerCloud\Objects;
  * Class ImageCreation
  * @package Exploriment\HetznerCloud\Objects
  */
-final class ImageCreation extends Action
+final class ImageCreation extends BaseObject
 {
 
     /**

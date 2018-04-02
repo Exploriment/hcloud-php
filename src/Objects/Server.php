@@ -349,6 +349,18 @@ final class Server extends BaseObject
     }
 
     /**
+     * @see Servers::requestConsole()
+     *
+     * @return ConsoleCredentials
+     * @throws \Exploriment\HetznerCloud\Exceptions\MalformedResponse
+     * @throws \ReflectionException
+     */
+    public function requestConsole()
+    {
+        return Servers::requestConsole($this->id);
+    }
+
+    /**
      * @see Servers::delete()
      *
      * @return Action

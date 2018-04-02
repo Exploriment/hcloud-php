@@ -6,6 +6,7 @@ use Exploriment\HetznerCloud\Configs;
 use Exploriment\HetznerCloud\Exceptions\InvalidInput;
 use Exploriment\HetznerCloud\Objects\Action;
 use Exploriment\HetznerCloud\Objects\ActionPasswordReset;
+use Exploriment\HetznerCloud\Objects\ConsoleCredentials;
 use Exploriment\HetznerCloud\Objects\Image;
 use Exploriment\HetznerCloud\Objects\ImageCreation;
 use Exploriment\HetznerCloud\Objects\ISO;
@@ -562,6 +563,25 @@ final class Servers extends Resource
             'delete' => (bool) $delete,
             'rebuild' => (bool) $rebuild
         ]);
+    }
+
+    /**
+     * Requests credentials for remote access via vnc over websocket to keyboard, monitor, and mouse for a server.
+     * The provided url is valid for 1 minute, after this period a new url needs to be created to connect to the server.
+     * How long the connection is open after the initial connect is not subject to this timeout.
+     * @see https://docs.hetzner.cloud/#resources-server-actions-post-17
+     *
+     * @param int $id
+     * @return ConsoleCredentials
+     * @throws Exceptions\MalformedResponse
+     * @throws \ReflectionException
+     */
+    public static function requestConsole($id)
+    {
+        $response = self::request('POST',
+            $id . '/actions/request_console');
+
+        return new ConsoleCredentials($response->getBody());
     }
 
     /**
