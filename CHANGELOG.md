@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.0 - 2018-04-02
+* **[Feature]** Added `Servers::changeProtection`
+* **[Feature]** Added `Servers::RequestConsole`
+* **[Update]** Updated the `Servers::changeDnsPtr` to reflect the changes made in the latest API version. Issue #3
+* **[Bugfix]** Objects `ImageCreation` was extending the `Action` object instead of the `BaseObject`
+
 ## v1.0.3 - 2018-04-02
 * **[Bugfix]** Fixed `root must be an object`. Issue #2
 
