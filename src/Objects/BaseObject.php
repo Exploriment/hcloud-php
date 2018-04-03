@@ -31,8 +31,16 @@ class BaseObject implements \jsonSerializable
     /**
      * @return array
      */
-    public function jsonSerialize()
+    public function toArray()
     {
         return get_object_vars($this);
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 }

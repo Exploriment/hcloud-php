@@ -20,13 +20,18 @@ final class PublicNet extends BaseObject
     protected $ipv6;
 
     /**
+     * @var array
+     */
+    protected $floating_ips;
+
+    /**
      * Retrieve the ipv4 address of the server
      *
      * @return string
      */
     public function getIpv4()
     {
-        return $this->ipv4->ip;
+        return $this->ipv4;
     }
 
     /**
@@ -36,7 +41,15 @@ final class PublicNet extends BaseObject
      */
     public function getIpv6()
     {
-        return $this->ipv6->ip;
+        return $this->ipv6;
+    }
+
+    /**
+     * @return array
+     */
+    public function getFloatingIps()
+    {
+        return $this->floating_ips;
     }
 
     /**
@@ -44,7 +57,7 @@ final class PublicNet extends BaseObject
      */
     public function __toString()
     {
-        return $this->getIpv4();
+        return $this->getIpv4()->ip;
     }
 
 }
