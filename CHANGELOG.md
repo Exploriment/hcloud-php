@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.1 - 2018-04-03
+* **[Enhancement]** `$server->getPublicNet()` now returns all data.
+* **[Enhancement]** Added `->toArray()` to all objects.
+
 ## v1.1.0 - 2018-04-02
 * **[Feature]** Added `Servers::changeProtection`
 * **[Feature]** Added `Servers::RequestConsole`
