@@ -273,8 +273,7 @@ final class Servers extends Resource
     {
         $response = self::request('POST', $id . '/actions/reset_password');
 
-        $response->action->root_password = $response->root_password;
-        return new ActionPasswordReset($response->action);
+        return new ActionPasswordReset($response->getBody());
     }
 
     /**
@@ -320,8 +319,7 @@ final class Servers extends Resource
             compact('type', 'ssh_keys')
         );
 
-        $response->action->root_password = $response->root_password;
-        return new ActionPasswordReset($response->action);
+        return new ActionPasswordReset($response->getBody());
     }
 
     /**
@@ -396,9 +394,11 @@ final class Servers extends Resource
      */
     public static function rebuild($id, $image)
     {
-        return self::action($id, 'rebuild', [
+        $response = self::request('POST', $id . '/actions/rebuild', [
             'image' => (string) $image
         ]);
+
+        return new ActionPasswordReset($response->getBody());
     }
 
     /**
