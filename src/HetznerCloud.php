@@ -9,7 +9,7 @@ namespace Exploriment\HetznerCloud;
 final class HetznerCloud
 {
 
-    const VERSION = 'v1.1.1';
+    const VERSION = 'v1.1.2';
 
     const GITHUB = 'https://github.com/exploriment/hcloud-php';
 

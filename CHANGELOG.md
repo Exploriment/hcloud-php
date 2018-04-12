@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.1.2 - 2018-04-12
+* **[Bugfix]** `ActionPasswordReset` will now return the proper response as documented in the wiki
+
 ## v1.1.1 - 2018-04-03
 * **[Enhancement]** `$server->getPublicNet()` now returns all data.
 * **[Enhancement]** Added `->toArray()` to all objects.
