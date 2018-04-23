@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.1.3 - 2018-04-24
+* **[Bugfix]** composer.json fix
+
 ## v1.1.2 - 2018-04-12
 * **[Bugfix]** `ActionPasswordReset` will now return the proper response as documented in the wiki
 
